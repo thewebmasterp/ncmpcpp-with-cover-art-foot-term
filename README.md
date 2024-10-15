@@ -24,7 +24,10 @@ Run it with `ncmp`.
 
 ## Screenshot
 ![image1](https://github.com/user-attachments/assets/3ba50d36-b5d5-4fa4-94cc-cebb1a9f6af2)
+
 ![image](https://github.com/user-attachments/assets/b38a1247-646a-44d9-b9e8-7af601fb6095)
+
+![image](https://github.com/user-attachments/assets/297c8c97-3d01-431c-8935-a5557d9c40ad)
 
 
 For Any Help or Suggestions you can open a pull request or
