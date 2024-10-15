@@ -29,6 +29,8 @@ Run it with `ncmp`.
 
 ![image](https://github.com/user-attachments/assets/297c8c97-3d01-431c-8935-a5557d9c40ad)
 
+![image](https://github.com/user-attachments/assets/df054a43-86a8-4996-93b9-1ef869dd416a)
+
 
 For Any Help or Suggestions you can open a pull request or
 
