@@ -14,11 +14,13 @@ resize_cover_image() {
   size=$(get_terminal_size)
   IFS=',' read -r width height <<< "$size"
 
-  local max_width=$((width * 10))   
-  local max_height=$((height * 20)) 
+  local max_width=$((width * 10 * 2))   
+  local max_height=$((height * 20 * 2)) 
 
   if [ -f "$COVER" ]; then
-    magick "$COVER" -resize "${max_width}x${max_height}>" "$TEMP_COVER"
+    magick "$COVER" -resize "650x650" "$TEMP_COVER"
+
+	sleep 1
 
     # Check if resizing was successful
     if [ $? -ne 0 ]; then
@@ -39,7 +41,9 @@ function add_cover {
   resize_cover_image
 
   if [ -f "$TEMP_COVER" ]; then
-    kitty +kitten icat "$TEMP_COVER" || echo "Failed to display cover image."
+    # kitty +kitten icat "$TEMP_COVER" || echo "Failed to display cover image."
+	printf "\033[12;23H"
+	img2sixel "$TEMP_COVER"
   else
     echo "Temporary cover image does not exist: $TEMP_COVER"
   fi

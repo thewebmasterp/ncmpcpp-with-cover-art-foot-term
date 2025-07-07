@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DEBUG=false
+DEBUG=0
 
 COVER="/tmp/album_cover.png"
 EMB_COVER="/tmp/album_cover_embedded.png"
@@ -18,10 +18,10 @@ art=$(playerctl --player=mopidy metadata mpris:artUrl | sed 's|^file://||' 2>/de
 
 debug "Album Art URL: $art"
 
-if [[ $art =~ ^file:// ]]; then
-  art="${art#file://}" # Remove 'file://' prefix
+if [[ $art =~ ^/local/ ]]; then
+  art="${art#/local/}" # Remove '/local/' prefix
 
-  cp "$art" "$COVER" > /dev/null 2>&1
+  cp "/home/thewebmasterp/.local/share/mopidy/local/images/$art" "$COVER" > /dev/null 2>&1
 
   if [ $? -eq 0 ]; then
     debug "Cover copied successfully from local file: $COVER"
@@ -51,4 +51,5 @@ else
   art="$HOME/.config/ncmpcpp/default_cover.png" 
 fi
 
-notify-send -r 27072 "Now Playing" "$(mpc --format '%title% \n%artist% - %album%' current 2>/dev/null)" -i "$COVER"
+# Note: Uncomment to enable notifications
+# notify-send -r 27072 "Now Playing" "$(mpc --format '%title% \n%artist% - %album%' current 2>/dev/null)" -i "$COVER"
