@@ -21,7 +21,7 @@ debug "Album Art URL: $art"
 if [[ $art =~ ^/local/ ]]; then
   art="${art#/local/}" # Remove '/local/' prefix
 
-  cp "/home/thewebmasterp/.local/share/mopidy/local/images/$art" "$COVER" > /dev/null 2>&1
+  cp "$HOME/.local/share/mopidy/local/images/$art" "$COVER" > /dev/null 2>&1
 
   if [ $? -eq 0 ]; then
     debug "Cover copied successfully from local file: $COVER"
